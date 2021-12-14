@@ -1,12 +1,11 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore
-
-import 'dart:ui';
+// ignore_for_file: prefer_const_constructors, duplicate_ignor, duplicate_ignore
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:premiereapp/SecondScreen.dart';
 
 // ignore: use_key_in_widget_constructors
-class PremiereApp extends StatelessWidget {
+class PremiereScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +36,7 @@ class PremiereApp extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
                 child: Column(
                   children: [
+                    // ignore: duplicate_ignore, duplicate_ignore
                     Text("Colorful set of characters",
                         textAlign: TextAlign.center,
                         // ignore: prefer_const_constructors
@@ -57,30 +57,36 @@ class PremiereApp extends StatelessWidget {
               ),
             ],
           ),
-          // ignore: avoid_unnecessary_containers
           Container(
             padding: EdgeInsets.all(10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    Icon(
-                      Icons.circle,
-                      size: 20,
-                    ),
-                    Icon(Icons.circle, color: Colors.grey.shade300, size: 20),
-                    Icon(Icons.circle, color: Colors.grey.shade200, size: 20),
-                  ],
+                SizedBox(
+                  width: 60,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(
+                        Icons.circle,
+                        size: 15,
+                      ),
+                      Icon(Icons.circle, color: Colors.grey.shade300, size: 15),
+                      Icon(Icons.circle, color: Colors.grey.shade200, size: 15),
+                    ],
+                  ),
                 ),
-                Text(
-                  "Next",
-                  style: TextStyle(
-                      fontSize: 25,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500),
-                )
+                TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, SecondScreen.id);
+                    },
+                    child: Text(
+                      "Next",
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500),
+                    ))
               ],
             ),
           )
